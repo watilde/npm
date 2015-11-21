@@ -3,17 +3,10 @@ init:
 environment:
   matrix:
     - nodejs_version: "5"
-    - nodejs_version: "4"
-    - nodejs_version: iojs
-    - nodejs_version: "0.12"
-    - nodejs_version: "0.10"
-    - nodejs_version: "0.8"
-
 install:
   - "npm install -g node-gyp"
   - "npm install"
   - "npm config set spin false"
   - "make link"
-  - "mkdir -p /var/run/couchdb"
 test_script:
   - "npm run-script test-all"
