@@ -10,8 +10,8 @@ environment:
     - nodejs_version: "0.8"
 
 install:
-  - "npm install -g npm"
   - "npm install -g node-gyp"
+  - "npm install"
   - "npm config set spin false"
   - "node . install -g ."
   - "sudo mkdir -p /var/run/couchdb"
