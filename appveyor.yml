@@ -14,6 +14,6 @@ install:
   - "npm install"
   - "npm config set spin false"
   - "make link"
-  - "sudo mkdir -p /var/run/couchdb"
+  - "mkdir -p /var/run/couchdb"
 test_script:
   - "npm run-script test-all"
