@@ -1,4 +1,4 @@
-# watilde/npm -- issue tracker in Japanese for npm
+# watilde/npm - issue tracker in Japanese for npm
 
 [![Gitter](https://badges.gitter.im/watilde/npm.svg)](https://gitter.im/watilde/npm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
