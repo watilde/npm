@@ -977,6 +977,13 @@ The program to use to view help content.
 
 Set to `"browser"` to view html help content in the default web browser.
 
+### yes
+
+* Default: false
+* Type: boolean
+
+If true, npm init will use only defaults and not prompt you for any options.
+
 ## SEE ALSO
 
 * npm-config(1)
