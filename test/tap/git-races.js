@@ -44,7 +44,7 @@ bar#4.0.0 shouldn't have gotten its own copy if buzz, and if it did, it shouldn'
 */
 
 ;['bar', 'foo', 'buzz'].forEach(function (name) {
-  var mockurl = 'ssh://git@github.com/watilde/dummy-npm-' + name + '.git'
+  var mockurl = 'ssh://git@github.com/BryanDonovan/dummy-npm-' + name + '.git'
   var realrepo = path.resolve(wd, 'github-com-BryanDonovan-dummy-npm-' + name + '.git')
   var tgz = path.resolve(fixtures, 'github-com-BryanDonovan-dummy-npm-' + name + '.git.tar.gz')
 
@@ -69,6 +69,9 @@ var npm = requireInject.installGlobally('../../lib/npm.js', {
           testurls[args[m1]] = args[m2]
           args[m2] = testrepos[args[m2]]
         }
+        console.log(cmd)
+        console.log(args)
+        console.log('\n\n')
         execFile(cmd, args, options, cb)
       // here, we intercept npm validating the remote origin url on one of the
       // clones we've done previously and return the original url that was requested
