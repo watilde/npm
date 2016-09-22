@@ -60,22 +60,20 @@ function cleanup () {
 var npm = requireInject.installGlobally('../../lib/npm.js', {
   'child_process': {
     'execFile': function (cmd, args, options, cb) {
+      var i = process.platform === 'win32' ? 2 : 0
       // If it's a clone we swap any requests for any of the urls we're mocking
       // with the path to the bare repo
-      if (args[0] === 'clone') {
+      if (args[i] === 'clone') {
         var m2 = args.length - 2
         var m1 = args.length - 1
         if (testrepos[args[m2]]) {
           testurls[args[m1]] = args[m2]
           args[m2] = testrepos[args[m2]]
         }
-        console.log(cmd)
-        console.log(args)
-        console.log('\n\n')
         execFile(cmd, args, options, cb)
       // here, we intercept npm validating the remote origin url on one of the
       // clones we've done previously and return the original url that was requested
-      } else if (args[0] === 'config' && args[1] === '--get' && args[2] === 'remote.origin.url') {
+    } else if (args[i] === 'config' && args[i + 1] === '--get' && args[i + 2] === 'remote.origin.url') {
         process.nextTick(function () {
           cb(null, testurls[options.cwd], '')
         })
