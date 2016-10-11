@@ -40,8 +40,8 @@ var fixture = new Tacks(Dir({
         // add this to the end of the command to preserve the debug log:
         // || mv npm-debug.log real-debug.log
         // removed for windows compat reasons
-        abc: escapeArg(common.nodeBin) + ' ' + escapeArg(common.bin) + ' shrinkwrap',
-        shrinkwrap: escapeArg(common.nodeBin) + ' scripts/shrinkwrap.js'
+        abc: 'node ' + escapeArg(common.bin).replace(/'/g, '"') + ' shrinkwrap',
+        shrinkwrap: 'node scripts/shrinkwrap.js'
       }
     }),
     scripts: Dir({
@@ -87,4 +87,3 @@ test('cleanup', function (t) {
   cleanup()
   t.done()
 })
-
